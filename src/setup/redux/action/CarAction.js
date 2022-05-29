@@ -47,7 +47,7 @@ export const newCar = (formData) => async (dispatch) => {
 
         await axios.post(`https://rent-car-appx.herokuapp.com/admin/car`, formData)
             .then((res) => {
-                dispatch({type: `${POST_CAR}_FULFILLED`});
+                // dispatch({type: `${POST_CAR}_FULFILLED`});
             })
     } catch (err) {
         dispatch({

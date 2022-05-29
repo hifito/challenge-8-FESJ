@@ -2,10 +2,23 @@ import {Typography, Table, Space, Breadcrumb} from 'antd'
 import {Rectangle} from "../../../../assets/media";
 import {CaretRight} from "phosphor-react";
 import {css} from "@emotion/css";
+import {useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {useEffect} from "react";
+import Cookies from "js-cookie";
 
 const {Title, Text} = Typography;
 
 const DashboardPage = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        if(Cookies.get('role') !== 'admin') {
+            navigate("/")
+        }
+    }, []);
+
     const columns = [
         {
             title: 'No',

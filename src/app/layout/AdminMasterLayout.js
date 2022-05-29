@@ -18,6 +18,7 @@ const AdminMasterLayout = (props) => {
 
     function handleLogout() {
         Cookies.remove('token')
+        Cookies.remove('role')
         navigate('/login')
     }
 

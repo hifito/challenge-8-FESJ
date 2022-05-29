@@ -1,13 +1,25 @@
 import {Typography, Table, Space, Breadcrumb, Button, Col, Row} from 'antd'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {CaretRight} from "phosphor-react";
 import {css} from "@emotion/css";
 import ProductCard from "./component/ProductCard";
 import {PlusOutlined} from "@ant-design/icons";
+import {useDispatch} from "react-redux";
+import {useEffect} from "react";
+import Cookies from "js-cookie";
 
 const {Title, Text} = Typography;
 
 const CarsPage = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        if(Cookies.get('role') !== 'admin') {
+            navigate("/")
+        }
+    }, []);
+
     const columns = [
         {
             title: 'No',

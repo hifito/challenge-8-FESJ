@@ -36,6 +36,7 @@ const InputCar = () => {
     };
 
     const onFinish = async (values) => {
+        console.log(values)
         let img = fileList.fileList[0].originFileObj
         let formData = new FormData();
         formData.append('image', img)
@@ -45,7 +46,7 @@ const InputCar = () => {
         formData.append('status', false)
         await dispatch(newCar(formData))
         if (error) {
-            message.error('This is an error message');
+            message.error('Data Gagal Disimpan,');
         } else {
             message.success('Data Berhasil Disimpan');
             navigate('/admin')
@@ -91,7 +92,7 @@ const InputCar = () => {
                                 },
                             ]}
                         >
-                            <Input/>
+                            <Input type="number"/>
                         </Form.Item>
                         <Form.Item
                             name="photo"

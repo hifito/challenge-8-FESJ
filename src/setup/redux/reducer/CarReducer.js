@@ -50,7 +50,6 @@ const CarReducer = (state = initialState, action) => {
             };
         case`${POST_CAR}_FULFILLED`:
             return {
-                ...state,
                 isLoading: false,
             };
         case`${POST_CAR}_ERROR`:

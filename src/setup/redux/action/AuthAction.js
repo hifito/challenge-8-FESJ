@@ -17,8 +17,10 @@ export const authLogin = (email, password, navigate) => async (dispatch) => {
                 })
                 Cookies.set('token', res.data.access_token, {expires: inOneHours})
                 if(res.data.role === "Customer") {
+                    Cookies.set('role', 'customer')
                     navigate('/')
                 } else {
+                    Cookies.set('role', 'admin')
                     navigate('/admin')
                 }
             })
@@ -56,4 +58,5 @@ export const authRegister = (email, password, navigate) => async (dispatch) => {
 
 export const logout = () => (dispatch) => {
     Cookies.remove('token')
+    Cookies.remove('role')
 }
