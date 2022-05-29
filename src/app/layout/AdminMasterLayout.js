@@ -14,7 +14,7 @@ const {Header, Content, Footer, Sider} = Layout;
 const AdminMasterLayout = (props) => {
     let navigate = useNavigate()
     const dispatch = useDispatch()
-    const { isLoading, dataAuth} = useSelector((state) => state.auth);
+    const {isLoading, dataAuth} = useSelector((state) => state.auth);
 
     function handleLogout() {
         Cookies.remove('token')
@@ -55,10 +55,10 @@ const AdminMasterLayout = (props) => {
                     <img src={Administrator} alt=""/>
                 </Sider>
                 <Layout>
-                    <Content style={{minHeight: "100vh", backgroundColor: "#f4f5f7"}}>
+                    <Content style={{minHeight: "100vh"}}>
                         <Layout className="layout">
                             <Header style={{backgroundColor: "#FFFFFF"}}>
-                                <div style={{margin: "0", display: "inline"}}>
+                                <div style={{margin: "0", display: "inline", boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.05)"}}>
                                     <img src={LogoRectangleV2} alt=""/>
                                     <div style={{float: "right"}}>
                                         <Space size={32}>
@@ -83,16 +83,8 @@ const AdminMasterLayout = (props) => {
                                     <Sider
                                         style={{backgroundColor: "#FFFFFF"}}
                                         width={220}
-                                        breakpoint="lg"
-                                        collapsedWidth="0"
-                                        onBreakpoint={broken => {
-                                            console.log(broken);
-                                        }}
-                                        onCollapse={(collapsed, type) => {
-                                            console.log(collapsed, type);
-                                        }}
                                     >
-                                        <Title level={4} style={{color: "#8A8A8A", margin: "35px 0 30px 24px"}}>Dashboard</Title>
+                                        <Title level={5} style={{color: "#8A8A8A", margin: "35px 0 30px 24px"}}>DASHBOARD</Title>
                                         <Menu
                                             mode="inline"
                                             defaultSelectedKeys={['1']}
